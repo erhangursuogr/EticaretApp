@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { SharedModule } from 'src/app/common/shared/shared.module';
 
 @Component({
-  selector: 'app-register',
+  selector: 'app-navbar',
   standalone: true,
   imports: [SharedModule],
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class RegisterComponent {
+export class NavbarComponent {
 
 }

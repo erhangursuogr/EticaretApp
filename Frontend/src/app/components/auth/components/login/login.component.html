@@ -1,0 +1,37 @@
+<div class="d-flex justify-content-center" style="margin-top: 75px;">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Giriş Sayfası</h3>
+            </div>
+            <div class="card-body">
+                <form #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm)">
+                    <div class="form-group">
+                        <label for="email">Mail Adresi</label>
+                        <input type="email" class="form-control" ngModel #email name="email" required="email" id="email"
+                            aria-describedby="emailHelp" placeholder="E-posta Adresi" [appValid]="email.validity.valid">
+                        <div class="invalid-feedback">
+                            Geçerli bir mail adresi giriniz.
+                        </div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="password">Şifre</label>
+                        <input type="password" class="form-control" ngModel #password name="password"
+                            required="password" id="password" placeholder="Şifre" minlength="6" autocomplete="on"
+                            [appValid]="password.validity.valid">
+                        <div class="invalid-feedback">
+                            Geçerli bir şifre giriniz.
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <button [disabled]="!loginForm.valid" type="submit"
+                            class="btn btn-primary w-100 btn-block">Giriş Yap</button>
+                    </div>
+                    <a routerLink="/register" style="float: right">Kayıt Ol</a>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+</div>

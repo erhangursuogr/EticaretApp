@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center" style="margin-top: 75px;">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Kayıt Formu</h3>
+            </div>
+            <div class="card-body">
+                <form autocomplete="off" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+                    <div class="form-group">
+                        <label for="username">Ad Soyad</label>
+                        <input [(ngModel)] = "registerModel.name" #username required="true" minlength="3" name="username"
+                            [appValid]="username.validity.valid" type="text" class="form-control" id="username"
+                            placeholder="Enter username">
+                        <div class="invalid-feedback">
+                            Kullanıcı adı en az 3 karakter olmalı.
+                        </div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="email">Mail Adresi</label>
+                        <input [(ngModel)] = "registerModel.email" #email required="true" minlength="3" name="email"
+                            [appValid]="email.validity.valid" type="email" class="form-control" id="email"
+                            placeholder="Enter Email">
+                        <div class="invalid-feedback">
+                            Geçerli Mail Adresi Giriniz.
+                        </div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="password">Şifre</label>
+                        <input [(ngModel)] = "registerModel.password" #password required="true" minlength="6" name="password"
+                            [appValid]="password.validity.valid" type="password" class="form-control" id="password" autocomplete="off"
+                            placeholder="Enter Password">
+                        <div class="invalid-feedback">
+                            Şifre alanı boş olamaz.
+                        </div>
+                    </div>
+                    <button [disabled]="!registerForm.valid" class="btn btn-primary mt-3 w-100">Kayıt Ol</button>
+                    <a routerLink="/login" style="float: right">Giriş Yap</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
