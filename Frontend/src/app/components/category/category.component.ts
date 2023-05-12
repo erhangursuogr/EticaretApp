@@ -2,10 +2,10 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { SharedModule } from 'src/app/common/shared/shared.module';
-import { CategoryModel } from './models/category.model';
 import { CategoryService } from './services/category.service';
 import { SwalService } from 'src/app/common/services/swal.service';
 import { CategoryPipe } from './pipes/category.pipe';
+import { CategoryModel } from './models/category.model';
 
 @Component({
   selector: 'app-category',
@@ -81,8 +81,11 @@ export class CategoryComponent {
   }
 
   delete(model: CategoryModel): void {
-    this._swalService.callSwal("Silme İşlemi", `${model.name} Kategorisini Silmek İstediğinize Emin misiniz?`, "warning", () => {
-      this._categoryService.delete(model.id, res => {
+    if (model.id == null || model.id == "") {
+      model.id = model._id;
+    }
+    this._swalService.callSwal("Silme İşlemi", `${model} Kategorisini Silmek İstediğinize Emin misiniz?`, "warning", () => {
+      this._categoryService.delete(model, res => {
         this._toastr.info(res.message);
         this.getAll();
       });

@@ -30,6 +30,7 @@ router.post('/login', async (req, res) => {
     try {
         const { email, password } = req.body;
         let user = await User.findOne({ email: email });
+        console.log(user);
         if (user == null) {
             res.status(400).json({ message: 'Kullanıcı Bulunamadı!!!' });
             return;
@@ -38,7 +39,7 @@ router.post('/login', async (req, res) => {
                 res.status(400).json({ message: 'Şifre Hatalı!!!' });
                 return;
             }else{
-                const token = jwt.sign({}, secretKey, { expiresIn: '1d' });
+                const token = jwt.sign({}, secretKey, { expiresIn: 10 });
                 let model = {token: token, user: user};
                 res.json(model);
             }

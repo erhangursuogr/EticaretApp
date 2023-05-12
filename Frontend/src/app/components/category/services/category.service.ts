@@ -25,8 +25,8 @@ export class CategoryService {
     this._http.post<MessageResponseModel>('categories/update', model, res => callback(res));
   }
 
-  delete(id: string, callback: (res: MessageResponseModel) => void) {
-    let model = { id: id };
+  delete(model: CategoryModel, callback: (res: MessageResponseModel) => void) {
+    //console.log("model servis" + model._id + " " + model.id + " " + model.name);
     this._http.post<MessageResponseModel>('categories/delete', model, res => callback(res));
   }
 

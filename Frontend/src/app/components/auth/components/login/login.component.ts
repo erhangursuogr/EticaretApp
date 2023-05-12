@@ -32,9 +32,7 @@ export class LoginComponent {
       this._authService.login(model, res => {
         this._toastrService.success("Giriş Başarılı...", "Success");
         localStorage.setItem("token", res.token);
-        localStorage.setItem("user", JSON.stringify(res.user.email));
-        console.log(res);
-        
+        localStorage.setItem("user", JSON.stringify(res.user));
         this._router.navigateByUrl("/");
       });
     } else {

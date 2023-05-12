@@ -10,22 +10,22 @@
             <a class="nav-link active" aria-current="page" routerLink="/">Ana Sayfa</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/category">Sipraişlerim</a>
+            <a class="nav-link" routerLink="/orders">Sipraişlerim</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" routerLink="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Ürünler
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" routerLink="/">Ürünler</a></li>
+              <li><a class="dropdown-item" routerLink="/product">Ürünler</a></li>
               <li><a class="dropdown-item" routerLink="/category">Kategoriler</a></li>
             </ul>
           </li>
         </ul>
-        <button type="button" class="btn btn-outline-success btn-sm position-relative">
+        <button routerLink="/baskets" type="button" class="btn btn-outline-success btn-sm position-relative">
             <i class="fa-solid fa-cart-shopping"></i>
             <span class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger">
-              0              
+              {{_basketService.count}}      
             </span>
             
           </button>
